@@ -1,0 +1,4 @@
+my:
+  greeting: Hello World from the updated DEV restaurant server 
+  list:
+    values: One, Two, Three   

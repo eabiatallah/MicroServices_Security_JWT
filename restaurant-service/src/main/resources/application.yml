@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: RESTAURANT-SERVICE
+  config:
+    import: optional:configserver:http://localhost:8888
+  profiles: #  activates profiles for the entire application
+    active: dev
+
+# Move this config to the application.yml to get pick up by config-server
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone : http://u:p@localhost:8761/eureka/

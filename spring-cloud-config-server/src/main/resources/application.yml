@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active:
+      - native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations:  file:///C:/Users/eabia/git/spring-security-projects/api-gateway-security/configrepo
+
+  application:
+    name:  spring-cloud-config-server
+
+server:
+  port: 8888
+
+management:
+  endpoint:
+    health:
+      show-details: "ALWAYS"
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+
+encrypt:
+  key: qwerty

@@ -1,0 +1,34 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: swiggy-app
+          uri: lb://SWIGGY-APP
+          predicates:
+            - Path=/swiggy/**
+          filters:
+            - AuthenticationFilter
+
+
+        - id: restaurant-service
+          uri: lb://RESTAURANT-SERVICE
+          predicates:
+            - Path=/restaurant/**
+          filters:
+            - AuthenticationFilter
+
+        - id: identity-service
+          uri: lb://IDENTITY-SERVICE
+          predicates:
+            - Path=/auth/**
+
+server:
+  port: 8080
+  
+#server:
+  #port: 8443
+  #ssl:
+    #key-store-type: PKCS12
+    #key-store: classpath:keystore/edge.p12
+    #key-store-password: password
+    #key-alias: localhost            

@@ -1,0 +1,16 @@
+my:
+  greeting: Hello World from config server
+  common: reading from application.yml as common value
+  list:
+    values: One, Two, Three, Four
+    
+db:
+  connection: connection-string-here-from-config-server
+  host: 127.0.0.1
+  port: 1200  
+  
+  
+eureka:
+  client:
+    service-url:
+      defaultZone : http://u:p@localhost:8761/eureka/  

@@ -1,0 +1,40 @@
+POST: http://localhost:8080/auth/register
+Body | raw
+{
+    "name": "Elias",
+    "email": "ea@gmail.com",
+    "password": "Pwd1",
+    "roles": "ROLE_ADMIN"
+}
+
+-- 
+
+POST: http://localhost:8080/auth/token
+Body | raw
+{
+    "username": "Elias",
+    "password": "Pwd1"
+}
+
+-- 
+
+GET: http://localhost:8080/swiggy/37jbd832
+Authorization | Type: Bearer Token | value from above api 
+
+Also this API has circuit breaker.. with a fallback method. Use GET: http://localhost:8081/actuator/health to check status of CB.
+
+---
+
+GET: http://localhost:8888/identity-service/default
+Config Server check profile
+
+---
+POST: http://localhost:8082/actuator/refresh --> refresh attributes.
+
+---
+POST: http://localhost:8888/encrypt
+BODY | RAW | TEXT
+
+---
+POST: http://localhost:8888/decrypt
+BODY | RAW | TEXT
